@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_server.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antdelga <antdelga@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/10 23:45:28 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/20 13:24:07 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
