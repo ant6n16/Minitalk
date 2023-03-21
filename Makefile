@@ -6,18 +6,17 @@
 #    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/03/20 13:47:46 by antdelga         ###   ########.fr        #
+#    Updated: 2023/03/20 18:00:59 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_C	=	./src/client.a
-NAME_S	=	./src/server.a
+NAME_C	=	./src/client
+NAME_S	=	./src/server
 
 LIBFT_R = ./libft
 LIBFT = ${LIBFT_R}/libft.a
 
 SRCS_C	=	./src/main_client.c \
-			./src/prueba.c \
 
 SRCS_S  =	./src/main_server.c \
 
@@ -35,10 +34,10 @@ ${LIBFT}:	${LIBFT_R}/*.c
 	make -C ${LIBFT_R}
 
 ${NAME_C}:	${OBJS_C} 
-	@${CC} ${CFLAGS} ./libft/libft.a ./src/main_client.c -o client
+	${CC} ${CFLAGS} ./libft/libft.a ./src/main_client.c -o client
 
 ${NAME_S}:	${OBJS_S}
-	@${CC} ${CFLAGS} ./libft/libft.a ./src/main_server.c -o server
+	${CC} ${CFLAGS} ./libft/libft.a ./src/main_server.c -o server
 
 clean:
 	make clean -C ${LIBFT_R}
