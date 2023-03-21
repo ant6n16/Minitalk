@@ -6,19 +6,40 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/20 13:25:41 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:42:24 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
 
-int	main(int argc, char **argv)
+void	manejador_sig(int signum, siginfo_t *info, void *context)
 {
-	(void) argc;
-	(void) argv;
-	int	a;
+	static int				bit = 0;
+	static unsigned char	c = 0;
 
-	a = 2;
-	ft_printf("Server: %d\n", a);
+	(void) context;
+	(void) info;
+	if (signum == SIGUSR2)
+		c = c + (1 << bit);
+	bit++;
+	if (bit == 8)
+	{
+		write(1, &c, 1);
+		bit = 0;
+		c = 0;
+	}
+}
+
+int	main(void)
+{
+	struct sigaction	act;
+
+	ft_printf("%d\n", getpid());
+	act.sa_sigaction = manejador_sig;
+	act.sa_flags = SA_SIGINFO;
+	sigaction(SIGUSR1, &act, NULL);
+	sigaction(SIGUSR2, &act, NULL);
+	while (1)
+		pause();
 	return (0);
 }
