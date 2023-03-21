@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:52:47 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/21 20:42:48 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:55:50 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	send_message(int pid, char *str)
 {
-	int		index;
-	int		pos;
-	char	c;
+	int	index;
+	int	pos;
+	int	c;
 
 	index = 0;
 	while (str[index] != '\0')
@@ -24,7 +24,7 @@ void	send_message(int pid, char *str)
 		pos = 8;
 		while (pos-- > 0)
 		{
-			c = (str[index] >> pos & 1);
+			c = str[index] >> pos & 1;
 			if (c == 1)
 				kill(pid, SIGUSR2);
 			else
@@ -41,7 +41,6 @@ int	main(int argc, char **argv)
 		ft_printf("Error. The correct input is like: ./client PID message\n");
 		return (0);
 	}
-	ft_printf("%d\n", ft_atoi(argv[1]));
 	send_message(ft_atoi(argv[1]), argv[2]);
 	return (0);
 }
