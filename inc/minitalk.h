@@ -6,7 +6,7 @@
 /*   By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 19:53:36 by antdelga          #+#    #+#             */
-/*   Updated: 2023/03/20 14:04:32 by antdelga         ###   ########.fr       */
+/*   Updated: 2023/03/21 14:16:21 by antdelga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <signal.h>
- #include <sys/types.h> 
 # include "../libft/libft.h"
-
 
 
 #endif
