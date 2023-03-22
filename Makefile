@@ -6,7 +6,7 @@
 #    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/03/21 14:16:08 by antdelga         ###   ########.fr        #
+#    Updated: 2023/03/22 14:10:35 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ LIBFT = ${LIBFT_R}/libft.a
 SRCS_C	=	./src/main_client.c \
 
 SRCS_S  =	./src/main_server.c \
+
 
 OBJS_C	=	${SRCS_C:.c=.o}
 OBJS_S	=	${SRCS_S:.c=.o}
@@ -38,6 +39,10 @@ ${NAME_C}:	${OBJS_C}
 
 ${NAME_S}:	${OBJS_S}
 	${CC} ${CFLAGS} ./libft/libft.a ./src/main_server.c -o server
+
+
+
+
 
 clean:
 	make clean -C ${LIBFT_R}
