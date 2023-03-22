@@ -6,7 +6,7 @@
 #    By: antdelga <antdelga@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 19:39:00 by antdelga          #+#    #+#              #
-#    Updated: 2023/03/22 14:26:30 by antdelga         ###   ########.fr        #
+#    Updated: 2023/03/22 14:38:37 by antdelga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,11 @@ SRCS	=	./src/main_client.c \
 			./src/main_server.c \
 
 OBJS	=	${SRCS:.c=.o}
+
+BONUS	=	./src/main_client_bonus.c \
+			./src/main_server_bonus.c \
+
+BONUS_OBJS	=	${BONUS:.c=.o}
 
 CC		=	gcc
 CFLAGS	=   -Wall -Wextra -Werror
@@ -35,6 +40,13 @@ ${NAME}:	${OBJS}
 	ar crs ${NAME} ${OBJS}
 	${CC} ${CFLAGS} ./src/minitalk.a ./src/main_client.c -o client
 	${CC} ${CFLAGS} ./src/minitalk.a ./src/main_server.c -o server
+
+bonus:	${BONUS_OBJS}
+	make -C ${LIBFT_R}
+	cp ${LIBFT} ${NAME}
+	ar crs ${NAME} ${BONUS_OBJS}
+	${CC} ${CFLAGS} ./src/minitalk.a ./src/main_client_bonus.c -o client
+	${CC} ${CFLAGS} ./src/minitalk.a ./src/main_server_bonus.c -o server
 
 clean:
 	make clean -C ${LIBFT_R}
